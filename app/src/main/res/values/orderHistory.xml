@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="orders">
+        <item>"5,20250405,me,you,Apple:5:500.Bandana:1:1000"</item>
+    </string-array>
+
+
+</resources>
