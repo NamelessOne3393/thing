@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,7 @@ public class histAdapter extends RecyclerView.Adapter<histAdapter.MyViewHolder> 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
+        TextView tvName,tvDate,tvTotal;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
         }

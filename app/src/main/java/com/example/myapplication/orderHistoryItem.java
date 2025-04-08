@@ -7,18 +7,18 @@ public class orderHistoryItem {
     String buyer;
     String seller;
     String total;
-    String[] items;
+    String[] split1;
 
 
     public orderHistoryItem(String data) {
-        items = data.split(",");
-        /*
+        this.split1 = data.split(",");
+
         this.id = split1[0];
         this.day = split1[1];
         this.buyer = split1[2];
         this.seller = split1[3];
 
-         */
+
 
     }
 }

@@ -10,8 +10,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<orderHistoryItem> thing = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView m = (RecyclerView) findViewById(R.id.MainList);
 
         m.setLayoutManager(new LinearLayoutManager(this));
-        m.setAdapter();
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -31,9 +33,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void parseDataToListIcon(String parseThing){
+    private void setUpModels(){
+        String[] thingsss =getResources().getStringArray(R.array.orders);
 
+
+        for (int i = 0; i< thingsss.length; i++ ){
+            thing.add(new orderHistoryItem(thingsss[i]));
+        }
     }
+
 
 
 
