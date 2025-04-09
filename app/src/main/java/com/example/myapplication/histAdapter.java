@@ -1,9 +1,13 @@
 package com.example.myapplication;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +37,16 @@ public class histAdapter extends RecyclerView.Adapter<histAdapter.MyViewHolder> 
         holder.tvDate.setText(list.get(position).getDay());
         holder.tvTotal.setText(list.get(position).getTotal());
 
+        holder.b.setOnClickListener(view -> {
+            Intent intent = new Intent(this.context, OrderViewer.class);
+            intent.putExtra("Id",position);
+            context.startActivity(intent);
+
+        });
+
+
+
+
     }
 
     @Override
@@ -43,6 +57,7 @@ public class histAdapter extends RecyclerView.Adapter<histAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView tvName,tvDate,tvTotal;
+        Button b;
         public MyViewHolder(@NonNull View itemView) {
 
 
@@ -50,7 +65,13 @@ public class histAdapter extends RecyclerView.Adapter<histAdapter.MyViewHolder> 
             tvName = itemView.findViewById(R.id.textName);
             tvDate = itemView.findViewById(R.id.textDate);
             tvTotal = itemView.findViewById(R.id.textTotal);
+            b = itemView.findViewById(R.id.changeThing);
 
         }
+
+
+
     }
+
+
 }
