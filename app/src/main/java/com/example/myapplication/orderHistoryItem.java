@@ -11,15 +11,36 @@ public class orderHistoryItem {
 
 
     public orderHistoryItem(String data) {
-        this.split1 = data.split(",");
+        this.split1 = data.split(",",6);
 
         this.id = split1[0];
         this.day = split1[1];
         this.buyer = split1[2];
         this.seller = split1[3];
+        this.total = split1[4];
 
 
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public String getBuyer() {
+        return buyer;
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public String getTotal() {
+        return total;
     }
 }
     /*

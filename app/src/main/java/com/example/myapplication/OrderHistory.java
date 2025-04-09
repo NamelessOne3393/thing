@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class OrderHistory extends AppCompatActivity {
 
     ArrayList<orderHistoryItem> thing = new ArrayList<>();
     @Override
@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView m = (RecyclerView) findViewById(R.id.MainList);
-
+        setUpModels();
         m.setLayoutManager(new LinearLayoutManager(this));
+        m.setAdapter(new histAdapter(this,thing));
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

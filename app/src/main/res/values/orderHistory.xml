@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="orders">
-        <item>"5,20250405,me,you,Apple:5:500.Bandana:1:1000"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
+        <item>"5,20250405,me,you and you and you,35.00,Apple:5:5!00.Bandana:1:10!00"</item>
     </string-array>
 
 
