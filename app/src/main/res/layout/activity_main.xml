@@ -5,41 +5,77 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0F7E9"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Banner Text at the top -->
+        <TextView
+            android:id="@+id/tvBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Local Roots"
+            android:textSize="24sp"
+            android:textColor="#FFFF99"
+            android:background="#004d00"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/local_roots_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:onClick="openLocalRoots"
-        android:text="Local Roots Shop"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="OnClick" />
+        <!-- Button below the banner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <Button
-        android:id="@+id/order_history_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="232dp"
-        android:layout_marginTop="16dp"
-        android:onClick="openOrderHistory"
-        android:text="Order History"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="OnClick" />
+            <TextView
+                android:id="@+id/welcomeMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/exploreFarmsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Explore Farms"/>
+
+            <Button
+                android:id="@+id/viewMapButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Map"/>
+
+            <Button
+                android:id="@+id/cartButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Cart"/>
+
+            <Button
+                android:id="@+id/messageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Messages"/>
+
+            <Button
+                android:id="@+id/orderHistoryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openOrderHistory"
+                android:text="Order History" />
+
+            <Button
+                android:id="@+id/orderHistoryButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openLocalRoots"
+                android:text="TestingPurposesZakiShop" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
