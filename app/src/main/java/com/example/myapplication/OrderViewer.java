@@ -26,7 +26,7 @@ public class OrderViewer extends AppCompatActivity {
         });
         Intent intent = getIntent();
 
-        orderHistoryItem aaaaa = new orderHistoryItem((getResources().getStringArray(R.array.orders))[intent.getExtras().getInt("Id")]);
+        orderHistoryItem aaaaa = new orderHistoryItem(OrderHistory.getOrder(intent.getExtras().getInt("Id")));
         TextView buyer = findViewById(R.id.Buyer);
         buyer.setText(aaaaa.getBuyer());
         TextView seller = findViewById(R.id.Seller);

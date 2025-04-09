@@ -10,9 +10,17 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrderHistory extends AppCompatActivity {
+
+
+    private static Map<Integer, String> theList = new HashMap<>();
+    private static Integer ARGH = 0;
 
     ArrayList<orderHistoryItem> thing = new ArrayList<>();
     @Override
@@ -35,12 +43,24 @@ public class OrderHistory extends AppCompatActivity {
     }
 
     private void setUpModels(){
-        String[] thingsss =getResources().getStringArray(R.array.orders);
-
-
-        for (int i = 0; i< thingsss.length; i++ ){
-            thing.add(new orderHistoryItem(thingsss[i]));
+        for (Integer item : theList.keySet()){
+            thing.add(new orderHistoryItem(theList.get(item)));
         }
+    }
+
+    public static void checkOut(){
+        String toSaveThing = "%d , %d ,Me,You, %d ,";
+        toSaveThing = String.format(toSaveThing,ARGH,(new Date()).getTime(),ShoppingCart.getTotal());
+        for (String item : ShoppingCart.getItemNames())
+        {
+            toSaveThing += item +":"+ShoppingCart.getQuantity(item)+":"+ShoppingCart.getPrice(item);
+        }
+        theList.put(ARGH,toSaveThing);
+        ARGH +=1;
+    }
+    public static String getOrder(Integer i){
+        return theList.get(i);
+
     }
 
 
