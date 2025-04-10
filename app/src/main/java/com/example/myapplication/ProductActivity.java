@@ -11,23 +11,46 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class ProductActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Toast.makeText(this,"I AM ALIVE!",Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-
         // Set up product information
         TextView productName = findViewById(R.id.product_name);
         TextView productPrice = findViewById(R.id.product_price);
         ImageView productImage = findViewById(R.id.product_image);
 
-        // Setting product details
-        productName.setText("Cucumber");
-        productPrice.setText("Price - 99$");
+        //i am not finding more images, i am out of time to fix this
         productImage.setImageResource(R.drawable.cucumber);
+
+        Intent intent = getIntent();
+
+        String pName;
+        Float pPrice;
+
+        if (!intent.hasExtra("farm")){
+            pName = "Cucumber";
+            pPrice = 99F;
+
+        } else {
+            ArrayList<Farm> thing = FarmData.getFarms();
+            Farm a = (Farm) intent.getSerializableExtra("farm");
+
+            pName = a.getProduces().get(0).getName();
+            pPrice= a.getProduces().get(0).getPrice();
+
+
+        }
+        productName.setText(pName);
+        productPrice.setText(String.format("Price - %.2f $",pPrice));
+
+
+
 
         // Add to wishlist button
         Button wishlistButton = findViewById(R.id.add_to_wishlist);
@@ -45,7 +68,7 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Add item to cart
-                ShoppingCart.addItem("Cucumber", 99);
+                ShoppingCart.addItem(pName, pPrice);
                 // Show feedback
                 Toast.makeText(ProductActivity.this, "Added to cart", Toast.LENGTH_SHORT).show();
             }

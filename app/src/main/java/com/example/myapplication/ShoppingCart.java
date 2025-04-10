@@ -7,12 +7,12 @@ import java.util.Map;
 
 public class ShoppingCart {
     // Using static fields to maintain cart state across activities
-    private static Map<String, Integer> items = new HashMap<>();
+    private static Map<String, Float> items = new HashMap<>();
     private static Map<String, Integer> quantities = new HashMap<>();
     private static String deliveryMethod = "Pickup"; // Default delivery method
 
     // Add item to cart
-    public static void addItem(String itemName, int price) {
+    public static void addItem(String itemName, Float price) {
         if (items.containsKey(itemName)) {
             quantities.put(itemName, quantities.get(itemName) + 1);
         } else {
@@ -42,8 +42,8 @@ public class ShoppingCart {
     }
 
     // Get price for item
-    public static int getPrice(String itemName) {
-        return items.getOrDefault(itemName, 0);
+    public static Float getPrice(String itemName) {
+        return items.getOrDefault(itemName, 0F);
     }
 
     // Get quantity for item
@@ -52,8 +52,8 @@ public class ShoppingCart {
     }
 
     // Calculate total
-    public static int getTotal() {
-        int total = 0;
+    public static Float getTotal() {
+        Float total = 0F;
         for (String item : items.keySet()) {
             total += items.get(item) * quantities.get(item);
         }

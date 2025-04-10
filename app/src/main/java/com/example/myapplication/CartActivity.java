@@ -69,11 +69,11 @@ public class CartActivity extends AppCompatActivity {
                 Button increaseBtn = itemView.findViewById(R.id.increase_quantity);
                 Button decreaseBtn = itemView.findViewById(R.id.decrease_quantity);
 
-                int price = ShoppingCart.getPrice(itemName);
+                Float price = ShoppingCart.getPrice(itemName);
                 int quantity = ShoppingCart.getQuantity(itemName);
 
                 nameView.setText(itemName);
-                priceView.setText(price + "$");
+                priceView.setText(String.format("%.2f $",price));
                 quantityView.setText(String.valueOf(quantity));
 
                 final String finalItemName = itemName;
@@ -103,7 +103,7 @@ public class CartActivity extends AppCompatActivity {
                 cartItemsContainer.addView(itemView);
             }
 
-            totalPriceView.setText("Total: " + ShoppingCart.getTotal() + "$");
+            totalPriceView.setText(String.format("Total: %.2f $",ShoppingCart.getTotal()));
         }
     }
 }

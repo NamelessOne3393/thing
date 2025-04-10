@@ -1,6 +1,9 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -17,8 +20,18 @@ public class FarmDetailsActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_farm_details);
 
+
         Farm farm = (Farm) getIntent().getSerializableExtra("farm");
         if (farm != null) {
+            Button viewCartButton = findViewById(R.id.button);
+            viewCartButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(FarmDetailsActivity.this, ProductActivity.class);
+                    intent.putExtra("farm",farm);
+                    startActivity(intent);
+                }
+            });
             TextView farmName = findViewById(R.id.farmName);
             farmName.setText(farm.getName());
 
